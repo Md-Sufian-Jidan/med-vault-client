@@ -27,7 +27,7 @@ const Navbar = () => {
         >
             <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
                 <div className="text-2xl font-bold flex items-center gap-1">
-                    <img src="https://i.ibb.co/yjn2X7Z/logo.png" alt="" />
+                    <img className='w-8 h-8' src="https://i.ibb.co/yjn2X7Z/logo.png" alt="" />
                     <span className='text-[#F7A582]'>Med</span>Vault
                 </div>
 
