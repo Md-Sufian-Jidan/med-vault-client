@@ -1,6 +1,8 @@
 import Banner from "../Banner/Banner";
 import Contact from "../Contact/Contact";
 import ContactHighlights from "../ContactHighlights/ContactHighlights";
+import Doctors from "../Doctors/Doctors";
+import PatientReviews from "../PatientReviews/PatientReviews";
 import Services from "../Services/Services";
 
 const Home = () => {
@@ -9,6 +11,8 @@ const Home = () => {
             <Banner />
             <Services />
             <ContactHighlights />
+            <PatientReviews />
+            <Doctors />
             <Contact />
         </div>
     );

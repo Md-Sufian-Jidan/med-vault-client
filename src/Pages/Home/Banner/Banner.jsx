@@ -14,7 +14,7 @@ const Banner = () => {
           transition={{ duration: 0.6 }}
           className="flex-1"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
           Your Best Medical Help Center
           </h1>
           <p className="text-gray-600 mb-6 text-lg">

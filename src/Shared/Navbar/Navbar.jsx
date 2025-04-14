@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const linkClass = 'hover:text-blue-600 transition';
+    const linkClass = 'hover:text-blue-600 text-white transition';
     const activeClass = 'text-blue-600 font-semibold';
 
     const navLinks = (
