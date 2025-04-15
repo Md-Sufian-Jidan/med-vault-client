@@ -8,6 +8,7 @@ import Error from "../Shared/Error/Error";
 import Dashboard from "../Layouts/Dashboard/Dashboard";
 import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import ManageDoctors from "../Pages/Dashboard/ManageDoctors/ManageDoctors";
 
 export const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
             {
                 path: 'users',
                 element: <AllUsers />
+            },
+            {
+                path: 'manageDoctors',
+                element: <ManageDoctors />
             },
         ]
     },

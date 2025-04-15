@@ -19,20 +19,32 @@ const AllUsers = () => {
     });
 
     const handleMakeAdmin = user => {
-        axiosSecure.patch(`/users/admin/${user._id}`)
-            .then(res => {
-                // console.log(res.data)
-                if (res.data.modifiedCount > 0) {
-                    refetch();
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: `${user.name} is an Admin Now!`,
-                        showConfirmButton: false,
-                        timer: 1500
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You wanna make the user admin?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/users/admin/${user._id}`)
+                    .then(res => {
+                        // console.log(res.data)
+                        if (res.data.modifiedCount > 0) {
+                            refetch();
+                            Swal.fire({
+                                title: "Congratulation!",
+                                text: "User Promoted to Admin",
+                                icon: "success"
+                            });
+                        }
                     });
-                }
-            });
+
+            }
+        });
+
     };
 
     const handleDeleteUser = user => {
@@ -87,12 +99,12 @@ const AllUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    {user.role === 'admin' ? 'Admin' : <button
-                                        onClick={() => handleMakeAdmin(user)}
-                                        className="btn btn-lg bg-[#D1A054]">
-                                        <FaUsers className="text-white 
-                                        text-2xl"></FaUsers>
-                                    </button>}
+                                    {user.role === 'admin' ? 'Admin' :
+                                        <button
+                                            onClick={() => handleMakeAdmin(user)}
+                                            className="btn btn-lg text-white bg-[#07332F]">
+                                            Make Admin
+                                        </button>}
                                 </td>
                                 <td>
                                     <button

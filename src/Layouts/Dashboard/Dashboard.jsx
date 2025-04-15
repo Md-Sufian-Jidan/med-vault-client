@@ -25,7 +25,7 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink className={({ isActive }) => isActive ? 'bg-[#383838] text-white' : ''} to="/dashboard/manageItems">
+                                <NavLink className={({ isActive }) => isActive ? 'bg-[#383838] text-white' : ''} to="/dashboard/manageDoctors">
                                     <FaList size={20} />Manage Doctors
                                 </NavLink>
                             </li>

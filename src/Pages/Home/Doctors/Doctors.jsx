@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import CommonHeadingDescription from "../../../Components/CommonHeadingDescription/CommonHeadingDescription";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+// import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import DoctorCard from "../../../Components/DoctorCard/DoctorCard";
+import useDoctors from "../../../Hooks/useDoctors";
 
 const Doctors = () => {
-    const axiosPublic = useAxiosPublic();
-    const [doctors, setDoctors] = useState([]);
-    useEffect(() => {
-        axiosPublic.get('/doctors')
-            .then(res => setDoctors(res.data));
-    }, []);
+    // const axiosPublic = useAxiosPublic();
+    // const [doctors, setDoctors] = useState([]);
+    // useEffect(() => {
+    //     axiosPublic.get('/doctors')
+    //         .then(res => setDoctors(res.data));
+    // }, []);
+    const { doctors } = useDoctors();
 
     return (
         <div className="max-w-7xl mx-auto">
