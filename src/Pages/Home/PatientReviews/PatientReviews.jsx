@@ -8,8 +8,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import CommonHeadingDescription from "../../../Components/CommonHeadingDescription/CommonHeadingDescription";
+import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 
 const PatientReviews = () => {
+    const axiosPublic = useAxiosPublic();
     const [reviews, setReviews] = useState([]);
     const [swiperRef, setSwiperRef] = useState(null);
     const appendNumber = useRef(500);
@@ -38,13 +40,12 @@ const PatientReviews = () => {
     };
 
     useEffect(() => {
-        fetch('/public/reviews.json')
-            .then(res => res.json())
-            .then(data => setReviews(data));
+        axiosPublic.get('/reviews')
+            .then(res => setReviews(res.data));
     }, []);
 
     return (
-        <div>
+        <div className='max-w-7xl mx-auto '>
             <CommonHeadingDescription title={'What Our Patients Says'} description={'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'} />
 
 
