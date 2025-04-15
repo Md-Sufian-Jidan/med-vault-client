@@ -9,7 +9,7 @@ const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const { user, logOut } = useAuth();
     const linkClass = 'hover:text-blue-600 text-white transition';
-    const activeClass = 'text-blue-600 font-semibold';
+    const activeClass = 'btn btn-outline text-[#F7A582] font-semibold';
 
     const handleLogout = () => {
         logOut()
@@ -37,8 +37,13 @@ const Navbar = () => {
         <>
             <li><NavLink to="/" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Home</NavLink></li>
             <li><NavLink to="/features" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Features</NavLink></li>
+            <li><NavLink to="/appointments" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Appointments</NavLink></li>
             <li><NavLink to="/pricing" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Pricing</NavLink></li>
             <li><NavLink to="/contact" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Contact</NavLink></li>
+            {
+                user &&
+                <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Dashboard</NavLink></li>
+            }
             {
                 user ?
                     <li><button onClick={handleLogout} className='btn btn-error'>Logout</button></li> :
@@ -55,7 +60,7 @@ const Navbar = () => {
             className="bg-[#07332F] shadow-md fixed top-0 left-0 right-0 z-50"
         >
             <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-                <div className="text-2xl font-bold flex items-center gap-1">
+                <div className="text-2xl font-bold text-white flex items-center gap-1">
                     <img className='w-8 h-8' src="https://i.ibb.co/yjn2X7Z/logo.png" alt="" />
                     <span className='text-[#F7A582]'>Med</span>Vault
                 </div>

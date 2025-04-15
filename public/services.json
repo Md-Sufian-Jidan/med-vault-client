@@ -1,0 +1,27 @@
+[
+    {
+      "service_name": "Gastrology",
+      "service_icon": "https://cdn-icons-png.flaticon.com/512/2965/2965567.png"
+    },
+    {
+      "service_name": "Cardiology",
+      "service_icon": "https://cdn-icons-png.flaticon.com/512/4305/4305562.png"
+    },
+    {
+      "service_name": "Neurology",
+      "service_icon": "https://cdn-icons-png.flaticon.com/512/4248/4248443.png"
+    },
+    {
+      "service_name": "Orthopedics",
+      "service_icon": "https://cdn-icons-png.flaticon.com/512/4320/4320360.png"
+    },
+    {
+      "service_name": "Dermatology",
+      "service_icon": "https://cdn-icons-png.flaticon.com/512/387/387561.png"
+    },
+    {
+      "service_name": "Pediatrics",
+      "service_icon": "https://cdn-icons-png.flaticon.com/512/3448/3448590.png"
+    }
+  ]
+  

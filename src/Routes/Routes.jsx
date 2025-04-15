@@ -5,6 +5,7 @@ import DoctorProfile from "../Components/DoctorProfile/DoctorProfile";
 import SignUp from "../Components/SignUp/SignUp";
 import SignIn from "../Components/SignIn/SignIn";
 import Error from "../Shared/Error/Error";
+import Dashboard from "../Layouts/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
     {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
                 element: <DoctorProfile />,
             },
         ]
+    },
+    {
+        path: 'dashboard',
+        element: <Dashboard />
     },
     {
         path: '/signUp',

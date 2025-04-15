@@ -1,6 +1,17 @@
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 
 const OurServices = () => {
+    const axiosPublic = useAxiosPublic();
+    const [services, setServices] = useState();
+
+    useEffect(() => {
+        fetch('/public/services.json')
+            .then(res => res.json())
+            .then(data => setServices(data));
+    }, []);
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -29,6 +40,16 @@ const OurServices = () => {
                 >
                     At MedVault, we provide a suite of smart, secure, and user-friendly tools designed to simplify your healthcare experience. Whether you're managing medical records, staying on top of your health, or sharing files with your doctor — our services ensure everything is just a click away.
                 </motion.p>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
+                    {
+                        services?.map(service => (
+                            <div key={service?.service_name} className='flex flex-col items-center bg-gray-300 p-3 shadow-md rounded-xl'>
+                                <img src={service.service_icon} alt={service.service_name} className="w-10 h-10" />
+                                <h2>{service.service_name}</h2>
+                            </div>
+                        ))
+                    }
+                </div>
                 <div className='mt-5 flex justify-self-center md:flex-row flex-col'>
                     <button className='p-5 md:rounded-l-lg md:border-t-2 md:border-b-2 md:border-l-2 bg-[#F7A582]'>Cavity Protection</button>
                     <button className='p-5 md:border-t-2 md:border-b-2'>Cosmetic Dentisty</button>
