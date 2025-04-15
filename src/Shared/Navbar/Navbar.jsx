@@ -41,7 +41,7 @@ const Navbar = () => {
                 </ul>
 
                 {/* Mobile menu toggle */}
-                <div className="md:hidden">
+                <div className="md:hidden text-white">
                     <button onClick={() => setMenuOpen(!menuOpen)}>
                         {menuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>

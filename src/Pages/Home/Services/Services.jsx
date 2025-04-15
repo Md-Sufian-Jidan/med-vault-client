@@ -6,7 +6,7 @@ const OurServices = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, }}
-            className='max-w-7xl mx-auto px-4 text-center py-20 flex md:flex-row flex-col items-center gap-10'
+            className='max-w-7xl mx-auto px-4 text-center py-5 flex md:flex-row flex-col items-center gap-10'
         >
             <div className='flex-1'>
                 <img src='https://i.ibb.co/jkz985k2/Rectangle-20078-1.png' alt='doctor picture' />
@@ -50,7 +50,7 @@ const OurServices = () => {
                             transition={{ duration: 0.6 }}
                             className="text-xl md:text-lg font-light"
                         >Electro Gastrology Therapy is a non-invasive treatment that uses mild electrical stimulation to regulate and restore normal gastric function. This innovative approach is designed to assist patients suffering from digestive disorders such as gastroparesis, bloating, and chronic indigestion. By gently stimulating the stomach muscles and nerves, it enhances motility, promotes better digestion, and supports overall gastrointestinal health — offering a modern solution for long-standing gastric issues.</motion.p>
-                        <button className='btn btn-outline text-[#F7A582]'>More Details</button>
+                        <button className='btn btn-outline text-[#F7A582] mt-5'>More Details</button>
                     </div>
                 </div>
 

@@ -1,5 +1,6 @@
 import { FaMapMarkerAlt, FaCalendarAlt, FaDollarSign, FaStar } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const DoctorCard = ({ doctor }) => {
     return (
@@ -36,9 +37,9 @@ const DoctorCard = ({ doctor }) => {
                     <span>${doctor.fee}</span>
                 </div>
             </div>
-            <button className="px-5 py-2 text-sm border-2 border-[#F7A582] text-[#F7A582] rounded-md hover:bg-[#F7A582] hover:text-white transition">
+            <Link to={`view/${doctor?._id}`} className="px-5 py-2 text-sm text-center border-2 border-[#F7A582] text-[#F7A582] rounded-md hover:bg-[#F7A582] hover:text-white transition">
                 View Profile
-            </button>
+            </Link>
         </motion.div>
     );
 };

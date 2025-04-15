@@ -12,7 +12,7 @@ const Banner = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex-1"
+          className="flex-1 md:text-start text-center"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
           Your Best Medical Help Center
@@ -20,7 +20,7 @@ const Banner = () => {
           <p className="text-gray-600 mb-6 text-lg">
             Manage, access, and share your documents securely—all in one place.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex md:flex-wrap md:justify-start justify-center gap-4">
             <Link
               to="/get-started"
               className="bg-[#F7A582] text-white px-6 py-3 rounded-xl text-lg font-medium hover:bg-[#F7A582]/80 transition"

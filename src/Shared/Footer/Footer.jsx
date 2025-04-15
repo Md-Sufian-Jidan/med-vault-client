@@ -30,6 +30,7 @@ const Footer = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.1 }}
+                    className='text-center'
                 >
                     <h3 className="text-lg font-semibold text-gray-800 mb-4">Quick Links</h3>
                     <ul className="space-y-2 text-sm text-gray-600">
@@ -48,8 +49,9 @@ const Footer = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.2 }}
+                    className='text-center'
                 >
-                    <h3 className="text-lg font-semibold text-gray-800 mb-4">Doc House Services</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-4">Med Vault Services</h3>
                     <ul className="space-y-2 text-sm text-gray-600">
                         <li>Pediatric Clinic</li>
                         <li>Diagnosis Clinic</li>
@@ -66,6 +68,7 @@ const Footer = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.3 }}
+                    className='text-center'
                 >
                     <h3 className="text-lg font-semibold text-gray-800 mb-4">Working Hours</h3>
                     <ul className="space-y-2 text-sm text-gray-600">

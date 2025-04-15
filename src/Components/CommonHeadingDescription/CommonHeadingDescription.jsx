@@ -8,7 +8,7 @@ const CommonHeadingDescription = ({ title, description, }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className={`max-w-2xl mx-auto my-5 text-center`}
+            className={`max-w-2xl mx-auto my-5 text-center px-3`}
         >
             <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 {title}
