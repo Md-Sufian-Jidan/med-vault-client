@@ -3,12 +3,35 @@ import { NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import useAuth from '../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const { user } = useAuth();
+    const { user, logOut } = useAuth();
     const linkClass = 'hover:text-blue-600 text-white transition';
     const activeClass = 'text-blue-600 font-semibold';
+
+    const handleLogout = () => {
+        logOut()
+            .then(res => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User Logout successfully.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+            .catch(err => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: err.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+    };
 
     const navLinks = (
         <>
@@ -18,8 +41,8 @@ const Navbar = () => {
             <li><NavLink to="/contact" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Contact</NavLink></li>
             {
                 user ?
-                    <li><button className='btn btn-error'>Logout</button></li> :
-                    <li><NavLink to="/signUp" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Sign Up</NavLink></li>
+                    <li><button onClick={handleLogout} className='btn btn-error'>Logout</button></li> :
+                    <li><NavLink to="/signIn" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Sign In</NavLink></li>
             }
         </>
     );
@@ -38,15 +61,17 @@ const Navbar = () => {
                 </div>
 
                 {/* Desktop nav */}
-                <div className='md:flex items-center gap-2 hidden'>
+                <div className='md:flex items-center gap-3 hidden'>
                     {/*  user profile */}
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img
-                                alt="Tailwind CSS Navbar component"
-                                src={user?.photoURL} />
+                    {
+                        user && <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img
+                                    alt="Tailwind CSS Navbar component"
+                                    src={user?.photoURL} />
+                            </div>
                         </div>
-                    </div>
+                    }
                     <ul className="hidden md:flex space-x-8 items-center">
                         {React.Children.map(navLinks.props.children, (child) => (
                             <motion.li whileHover={{ scale: 1.05 }}>
@@ -57,13 +82,15 @@ const Navbar = () => {
                 </div>
                 <div className='flex items-center gap-3 md:hidden'>
                     {/*  user profile */}
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img
-                                alt="Tailwind CSS Navbar component"
-                                src={user?.photoURL} />
+                    {
+                        user && <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img
+                                    alt="User profile"
+                                    src={user?.photoURL} />
+                            </div>
                         </div>
-                    </div>
+                    }
                     {/* Mobile menu toggle */}
                     <div className="md:hidden text-white">
                         <button onClick={() => setMenuOpen(!menuOpen)}>

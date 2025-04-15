@@ -136,7 +136,7 @@ const SignUp = () => {
                     </button>
 
                     <p className="text-sm text-center text-gray-600 mt-3">
-                        Already have an account? <Link to="/signIn" className="text-[#F7A582] font-semibold">Login</Link>
+                        Already have an account? <Link to="/signIn" className="text-[#F7A582] font-semibold">Sign In</Link>
                     </p>
                 </form>
             </motion.div>
