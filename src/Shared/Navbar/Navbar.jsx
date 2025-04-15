@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import useAuth from '../../Hooks/useAuth';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-
+    const { user } = useAuth();
     const linkClass = 'hover:text-blue-600 text-white transition';
     const activeClass = 'text-blue-600 font-semibold';
 
@@ -15,7 +16,11 @@ const Navbar = () => {
             <li><NavLink to="/features" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Features</NavLink></li>
             <li><NavLink to="/pricing" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Pricing</NavLink></li>
             <li><NavLink to="/contact" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Contact</NavLink></li>
-            <li><NavLink to="/signUp" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Sign Up</NavLink></li>
+            {
+                user ?
+                    <li><button className='btn btn-error'>Logout</button></li> :
+                    <li><NavLink to="/signUp" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Sign Up</NavLink></li>
+            }
         </>
     );
 
@@ -33,19 +38,38 @@ const Navbar = () => {
                 </div>
 
                 {/* Desktop nav */}
-                <ul className="hidden md:flex space-x-8 items-center">
-                    {React.Children.map(navLinks.props.children, (child) => (
-                        <motion.li whileHover={{ scale: 1.05 }}>
-                            {child}
-                        </motion.li>
-                    ))}
-                </ul>
-
-                {/* Mobile menu toggle */}
-                <div className="md:hidden text-white">
-                    <button onClick={() => setMenuOpen(!menuOpen)}>
-                        {menuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                <div className='md:flex items-center gap-2 hidden'>
+                    {/*  user profile */}
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                            <img
+                                alt="Tailwind CSS Navbar component"
+                                src={user?.photoURL} />
+                        </div>
+                    </div>
+                    <ul className="hidden md:flex space-x-8 items-center">
+                        {React.Children.map(navLinks.props.children, (child) => (
+                            <motion.li whileHover={{ scale: 1.05 }}>
+                                {child}
+                            </motion.li>
+                        ))}
+                    </ul>
+                </div>
+                <div className='flex items-center gap-3 md:hidden'>
+                    {/*  user profile */}
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                            <img
+                                alt="Tailwind CSS Navbar component"
+                                src={user?.photoURL} />
+                        </div>
+                    </div>
+                    {/* Mobile menu toggle */}
+                    <div className="md:hidden text-white">
+                        <button onClick={() => setMenuOpen(!menuOpen)}>
+                            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
                 </div>
             </div>
 

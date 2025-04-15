@@ -38,7 +38,6 @@ const SignUp = () => {
             createUser(data.email, data.password)
                 .then(result => {
                     const loggedUser = result.user;
-                    console.log(loggedUser);
                     updateUserProfile(data.name, res.data.data.display_url)
                         .then(() => {
                             // create user entry in the database
@@ -58,7 +57,6 @@ const SignUp = () => {
                                             timer: 1500
                                         });
                                         navigate('/signIn');
-                                        console.log(data);
                                     }
                                 })
                         })
@@ -77,7 +75,7 @@ const SignUp = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-[#F0F4F8] px-4 gap-10">
+        <div className="flex lg:flex-row flex-col items-center justify-center min-h-screen bg-[#F0F4F8] px-4 gap-10">
             <motion.div
                 className="w-full max-w-md rounded-xl "
                 initial={{ opacity: 0, y: 30 }}
