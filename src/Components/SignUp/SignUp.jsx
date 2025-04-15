@@ -1,54 +1,79 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../Hooks/useAuth';
+import Swal from 'sweetalert2';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
+
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const SignUp = () => {
     const { register, handleSubmit, reset, formState: { errors }, } = useForm();
     const { createUser, updateUserProfile } = useAuth();
+    const axiosPublic = useAxiosPublic();
+    const navigate = useNavigate();
 
-    const onSubmit = data => {
-        // console.log(data);
-        createUser(data.email, data.password)
-            .then(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser);
-                updateUserProfile(data.name, data.photoURL)
-                    .then(() => {
-                        // console.log(data.name);
-                        // console.log(data.email);
-                        // create user entry in the database
-                        const userInfo = {
-                            name: data.name,
-                            email: data.email,
-                        };
-                        axiosPublic.post('/users', userInfo)
-                            .then(res => {
-                                if (res.data.insertedId) {
-                                    reset();
-                                    Swal.fire({
-                                        position: 'top-end',
-                                        icon: 'success',
-                                        title: 'User created successfully.',
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                    });
-                                    navigate('/');
-                                }
-                            })
-                    })
-            })
-            .catch(err => {
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: `${err.message}`,
-                    showConfirmButton: false,
-                    timer: 1500,
+    const onSubmit = async (data) => {
+        if (data.password.length < 6) {
+            setLoading(false);
+            return toast.error('Your password should at least 6 character long');
+        }
+        if (!/[A-Z]/.test(data.password)) {
+            setLoading(false);
+            return toast.error('Your password should contain a Capital letter')
+        }
+        if (!/[a-z]/.test(data.password)) {
+            setLoading(false);
+            return toast.error('Your password should contain a lower letter')
+        }
+        const formData = new FormData();
+        formData.append('image', data.image[0]);
+        const res = await axiosPublic.post(image_hosting_api, formData, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        });
+        if (res.data.success) {
+            createUser(data.email, data.password)
+                .then(result => {
+                    const loggedUser = result.user;
+                    console.log(loggedUser);
+                    updateUserProfile(data.name, res.data.data.display_url)
+                        .then(() => {
+                            // create user entry in the database
+                            const userInfo = {
+                                name: data.name,
+                                email: data.email,
+                            };
+                            axiosPublic.post('/users', userInfo)
+                                .then(res => {
+                                    if (res.data.insertedId) {
+                                        reset();
+                                        Swal.fire({
+                                            position: 'top-end',
+                                            icon: 'success',
+                                            title: 'User created successfully.',
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        });
+                                        navigate('/signIn');
+                                        console.log(data);
+                                    }
+                                })
+                        })
                 })
-                console.log(err)
-            })
+                .catch(err => {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${err.message}`,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    })
+                    console.log(err)
+                })
+        }
     };
 
     return (
@@ -102,7 +127,7 @@ const SignUp = () => {
 
                     <div>
                         <label className="block text-sm font-medium text-gray-600">Photo</label>
-                        <input {...register("file", { required: true })} type="file" className="file-input" />
+                        <input {...register("image", { required: true })} type="file" className="file-input" />
                     </div>
                     {errors.file && <span className='text-red-500'>Photo field is required</span>}
                     <button

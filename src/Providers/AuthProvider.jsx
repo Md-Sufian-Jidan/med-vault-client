@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
+import auth from "../Firebase/Firebase.config";
 
 export const AuthContext = createContext(null);
 
