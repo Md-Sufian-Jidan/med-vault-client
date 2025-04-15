@@ -15,18 +15,8 @@ const Dashboard = () => {
                     {isAdmin ?
                         <>
                             <li>
-                                <NavLink className={({ isActive }) => isActive ? 'bg-[#383838] text-white' : ''} to="/dashboard">
-                                    <FaHome size={20} />Dashboard
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink className={({ isActive }) => isActive ? 'bg-[#383838] text-white' : ''} to="/dashboard/cart">
-                                    <FaCartArrowDown size={20} />My Cart
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink className={({ isActive }) => isActive ? 'bg-[#383838] text-white' : ''} to="/dashboard/paymentHistory">
-                                    <FaMarsAndVenus size={20} />Payment History
+                                <NavLink className={({ isActive }) => isActive ? 'bg-[#383838] text-white' : ''} to="/dashboard/adminHome">
+                                    <FaHome size={20} />Admin Home
                                 </NavLink>
                             </li>
                             <li>
@@ -36,12 +26,7 @@ const Dashboard = () => {
                             </li>
                             <li>
                                 <NavLink className={({ isActive }) => isActive ? 'bg-[#383838] text-white' : ''} to="/dashboard/manageItems">
-                                    <FaList size={20} />Manage Items
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink className={({ isActive }) => isActive ? 'bg-[#383838] text-white' : ''} to="/dashboard/bookings">
-                                    <FaBook size={20} />Manage Bookings
+                                    <FaList size={20} />Manage Doctors
                                 </NavLink>
                             </li>
                             <li>
@@ -81,11 +66,6 @@ const Dashboard = () => {
                     <li>
                         <NavLink to="/">
                             <FaHome size={20} />Home
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/order/salad">
-                            <FaMendeley size={20} />Menu
                         </NavLink>
                     </li>
                     <li>

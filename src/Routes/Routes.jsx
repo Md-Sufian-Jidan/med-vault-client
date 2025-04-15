@@ -6,6 +6,8 @@ import SignUp from "../Components/SignUp/SignUp";
 import SignIn from "../Components/SignIn/SignIn";
 import Error from "../Shared/Error/Error";
 import Dashboard from "../Layouts/Dashboard/Dashboard";
+import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
     {
@@ -25,7 +27,18 @@ export const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard />
+        element: <Dashboard />,
+        errorElement: <Error />,
+        children: [
+            {
+                path: 'adminHome',
+                element: <AdminHome />
+            },
+            {
+                path: 'users',
+                element: <AllUsers />
+            },
+        ]
     },
     {
         path: '/signUp',
