@@ -39,7 +39,7 @@ const Dashboard = () => {
                                     <FaHome size={20} />User Home
                                 </NavLink>
                             </li>
-                            <li>
+                            {/* <li>
                                 <NavLink className={({ isActive }) => isActive ? 'bg-[#383838] text-white' : ''} to="/dashboard/reservation">
                                     <FaRegCalendarAlt size={20} />Reservation
                                 </NavLink>
@@ -48,7 +48,7 @@ const Dashboard = () => {
                                 <NavLink className={({ isActive }) => isActive ? 'bg-[#383838] text-white' : ''} to="/dashboard/cart">
                                     <FaShoppingCart size={20} />My Cart
                                 </NavLink>
-                            </li>
+                            </li> */}
                             <li>
                                 <NavLink className={({ isActive }) => isActive ? 'bg-[#383838] text-white' : ''} to="/dashboard/review">
                                     <FaCommentDots size={20} />Reviews

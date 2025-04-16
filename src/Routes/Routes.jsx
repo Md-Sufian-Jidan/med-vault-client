@@ -15,6 +15,7 @@ import Features from "../Pages/Features/Features";
 import Pricing from "../Pages/Pricing/Pricing";
 import Contact from "../Pages/Contact/Contact";
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
+import UserReviews from "../Pages/Dashboard/UserReviews/UserReviews";
 
 export const router = createBrowserRouter([
     {
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
             {
                 path: 'addDoctor',
                 element: <AddDoctor />
+            },
+            {
+                path: 'review',
+                element: <UserReviews />
             },
         ]
     },
