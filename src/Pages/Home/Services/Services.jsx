@@ -43,7 +43,7 @@ const OurServices = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
                     {
                         services?.map(service => (
-                            <div key={service?.service_name} className='flex flex-col items-center bg-gray-300 p-3 shadow-md rounded-xl'>
+                            <div key={service?.service_name} className='flex flex-col items-center p-3 shadow-md rounded-xl'>
                                 <img src={service.service_icon} alt={service.service_name} className="w-10 h-10" />
                                 <h2>{service.service_name}</h2>
                             </div>

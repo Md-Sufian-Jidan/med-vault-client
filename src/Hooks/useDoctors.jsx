@@ -8,7 +8,6 @@ const useDoctors = () => {
         queryKey: ['doctors'],
         queryFn: async () => {
             const res = await axiosPublic.get('/doctors');
-            console.log(res);
             return res.data;
         }
     })

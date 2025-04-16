@@ -1,27 +1,26 @@
 [
-    {
-      "service_name": "Gastrology",
-      "service_icon": "https://cdn-icons-png.flaticon.com/512/2965/2965567.png"
-    },
-    {
-      "service_name": "Cardiology",
-      "service_icon": "https://cdn-icons-png.flaticon.com/512/4305/4305562.png"
-    },
-    {
-      "service_name": "Neurology",
-      "service_icon": "https://cdn-icons-png.flaticon.com/512/4248/4248443.png"
-    },
-    {
-      "service_name": "Orthopedics",
-      "service_icon": "https://cdn-icons-png.flaticon.com/512/4320/4320360.png"
-    },
-    {
-      "service_name": "Dermatology",
-      "service_icon": "https://cdn-icons-png.flaticon.com/512/387/387561.png"
-    },
-    {
-      "service_name": "Pediatrics",
-      "service_icon": "https://cdn-icons-png.flaticon.com/512/3448/3448590.png"
-    }
-  ]
-  
+  {
+    "service_name": "Gastrology",
+    "service_icon": "https://i.ibb.co/4nVGKJv9/Group-8-1.png"
+  },
+  {
+    "service_name": "Orthopedic",
+    "service_icon": "https://i.ibb.co/sSv88XX/x31-1-1.png"
+  },
+  {
+    "service_name": "Gynecology",
+    "service_icon": "https://i.ibb.co/QZQgWH6/Group-2-1.png"
+  },
+  {
+    "service_name": "Neurology",
+    "service_icon": "https://i.ibb.co/FbFpMXdw/Group-1.png"
+  },
+  {
+    "service_name": "Dental Care",
+    "service_icon": "https://i.ibb.co/Y7LXpzcP/x37-8-1.png"
+  },
+  {
+    "service_name": "Cosmetic Surgery",
+    "service_icon": "https://i.ibb.co/gLYT4cBv/Group-3-1.png"
+  }
+]

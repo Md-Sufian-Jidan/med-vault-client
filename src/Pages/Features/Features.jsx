@@ -1,8 +1,6 @@
-// Features.jsx
-import React from 'react';
 import { FaUserMd, FaLaptopMedical, FaHeartbeat, FaShieldAlt } from 'react-icons/fa';
 
-export default function Features() {
+const Features = () => {
   const features = [
     {
       icon: <FaUserMd className="text-4xl text-[#F7A582]" />,
@@ -48,3 +46,5 @@ export default function Features() {
     </section>
   );
 }
+
+export default Features;

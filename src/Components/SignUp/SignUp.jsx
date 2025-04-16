@@ -56,7 +56,7 @@ const SignUp = () => {
                                             showConfirmButton: false,
                                             timer: 1500
                                         });
-                                        navigate('/signIn');
+                                        navigate('/');
                                     }
                                 })
                         })

@@ -13,6 +13,8 @@ import AddDoctor from "../Pages/Dashboard/AddDoctor/AddDoctor";
 import Appointment from "../Pages/Appointment/Appointment";
 import Features from "../Pages/Features/Features";
 import Pricing from "../Pages/Pricing/Pricing";
+import Contact from "../Pages/Contact/Contact";
+import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 
 export const router = createBrowserRouter([
     {
@@ -40,6 +42,10 @@ export const router = createBrowserRouter([
                 path: '/pricing',
                 element: <Pricing />
             },
+            {
+                path: '/contact',
+                element: <Contact />
+            },
         ]
     },
     {
@@ -50,6 +56,10 @@ export const router = createBrowserRouter([
             {
                 path: 'adminHome',
                 element: <AdminHome />
+            },
+            {
+                path: 'userHome',
+                element: <UserHome />
             },
             {
                 path: 'users',
