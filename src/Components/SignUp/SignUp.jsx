@@ -127,7 +127,7 @@ const SignUp = () => {
                         <label className="block text-sm font-medium text-gray-600">Photo</label>
                         <input {...register("image", { required: true })} type="file" className="file-input" />
                     </div>
-                    {errors.file && <span className='text-red-500'>Photo field is required</span>}
+                    {errors.image && <span className='text-red-500'>Photo field is required</span>}
                     <button
                         type="submit"
                         className="w-full bg-[#F7A582] text-white py-2 rounded-md hover:bg-[#e18a5c] transition"

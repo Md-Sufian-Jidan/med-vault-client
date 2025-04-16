@@ -1,12 +1,10 @@
-import { FaBook, FaCartArrowDown, FaCommentDots, FaEnvelope, FaHome, FaList, FaMendeley, FaRegCalendarAlt, FaShoppingCart, FaUsers, FaUtensilSpoon } from "react-icons/fa";
-import { FaMarsAndVenus } from "react-icons/fa6";
+import { FaCommentDots, FaEnvelope, FaHome, FaList, FaRegCalendarAlt, FaShoppingCart, FaUsers, FaUtensilSpoon } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import { motion } from 'framer-motion';
+import useAdmin from "../../Hooks/useAdmin";
 
 const Dashboard = () => {
-    // TODO: get isAdmin value from the database
-
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
     return (
         <div className="flex">
             {/* dashboard side bar */}
@@ -20,7 +18,7 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink className={({ isActive }) => isActive ? 'bg-[#383838] text-white' : ''} to="/dashboard/addItems">
+                                <NavLink className={({ isActive }) => isActive ? 'bg-[#383838] text-white' : ''} to="/dashboard/addDoctor">
                                     <FaUtensilSpoon size={20} />Add Doctor
                                 </NavLink>
                             </li>

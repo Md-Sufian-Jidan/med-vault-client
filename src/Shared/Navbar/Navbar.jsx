@@ -37,7 +37,7 @@ const Navbar = () => {
         <>
             <li><NavLink to="/" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Home</NavLink></li>
             <li><NavLink to="/features" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Features</NavLink></li>
-            <li><NavLink to="/appointments" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Appointments</NavLink></li>
+            <li><NavLink to="/appointment" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Appointments</NavLink></li>
             <li><NavLink to="/pricing" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Pricing</NavLink></li>
             <li><NavLink to="/contact" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>Contact</NavLink></li>
             {

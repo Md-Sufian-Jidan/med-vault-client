@@ -9,6 +9,8 @@ import Dashboard from "../Layouts/Dashboard/Dashboard";
 import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import ManageDoctors from "../Pages/Dashboard/ManageDoctors/ManageDoctors";
+import AddDoctor from "../Pages/Dashboard/AddDoctor/AddDoctor";
+import Appointment from "../Pages/Appointment/Appointment";
 
 export const router = createBrowserRouter([
     {
@@ -23,6 +25,10 @@ export const router = createBrowserRouter([
             {
                 path: '/view/:id',
                 element: <DoctorProfile />,
+            },
+            {
+                path: '/appointment',
+                element: <Appointment />
             },
         ]
     },
@@ -42,6 +48,10 @@ export const router = createBrowserRouter([
             {
                 path: 'manageDoctors',
                 element: <ManageDoctors />
+            },
+            {
+                path: 'addDoctor',
+                element: <AddDoctor />
             },
         ]
     },
